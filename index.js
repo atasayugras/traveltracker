@@ -41,7 +41,7 @@ app.post("/add", async (req, res) => {
     const data = result.rows[0]; // {country_code: 'TR'}
     const countryCode = data.country_code; // 'TR'
     try {
-      await pool.query("INSERT INTO visited_countries (country_code) VALUES ($1)", [countryCode]);
+      await pool.query("INSERT INTO visited_countries (country_code) VALUES ($1)", [countryCode.toLowerCase()]);
       res.redirect("/");
     } catch (err) {
       console.log(err);
