@@ -37,11 +37,11 @@ app.post("/add", async (req, res) => {
   const input = req.body.country.trim();
 
   try {
-    const result = await pool.query("SELECT country_code FROM countries WHERE (country_name) ILIKE '%' || $1 || '%';", [input]);
+    const result = await pool.query("SELECT country_code FROM countries WHERE (country_name) ILIKE '%' || $1 || '%';", [input.toLowerCase()]);
     const data = result.rows[0]; // {country_code: 'TR'}
     const countryCode = data.country_code; // 'TR'
     try {
-      await pool.query("INSERT INTO visited_countries (country_code) VALUES ($1)", [countryCode.toLowerCase()]);
+      await pool.query("INSERT INTO visited_countries (country_code) VALUES ($1)", [countryCode]);
       res.redirect("/");
     } catch (err) {
       console.log(err);
