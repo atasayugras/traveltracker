@@ -58,15 +58,14 @@ Follow these steps to set up the project locally:
 Install dependencies:
 npm install
 Create a .env file with your database credentials:
-
-plaintext
-Copy code
-PORT=3000
-DB_USER=<your_db_user>
-DB_HOST=<your_db_host>
-DB_NAME=<your_db_name>
-DB_PASSWORD=<your_db_password>
-DB_PORT=5432
+```bash
+   PORT=3000
+   DB_USER=<your_db_user>
+   DB_HOST=<your_db_host>
+   DB_NAME=<your_db_name>
+   DB_PASSWORD=<your_db_password>
+   DB_PORT=5432
+```
 
 Start the server:
 node index.js
