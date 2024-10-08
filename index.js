@@ -22,7 +22,6 @@ async function checkVisisted() {
 }
 
 
-
 // GET home page
 app.get("/", async (req, res) => {
   const countries = await checkVisisted();
@@ -30,38 +29,59 @@ app.get("/", async (req, res) => {
 });
 
 
-
-
 //INSERT new country
 app.post("/add", async (req, res) => {
   const input = req.body.country.trim();
 
+  
   try {
-    const result = await pool.query("SELECT country_code FROM countries WHERE (country_name) ILIKE '%' || $1 || '%';", [input.toLowerCase()]);
+    // Check if the country exists in the countries table
+    const result = await pool.query("SELECT country_code FROM countries WHERE (country_name) ILIKE '%' || $1 || '%';", [input]);
     const data = result.rows[0]; // {country_code: 'TR'}
     const countryCode = data.country_code; // 'TR'
-    try {
+
+
+    // If the country does not exist
+    if (!data) {
+      const countries = await checkVisisted();
+      return res.render("index.ejs", {
+        countries: countries,
+        total: countries.length,
+        error: "Country name does not exist, try again.",
+      });
+    }
+
+
+      // Check if the country has already been added to visited_countries
+      const visitedResult = await pool.query("INSERT INTO visited_countries (country_code) VALUES ($1)", [countryCode]);
+      
+
+      // Country has already been added
+      if (visitedResult.rows.length > 0) {
+        const countries = await checkVisisted();
+        return res.render("index.ejs", {
+          countries: countries,
+          total: countries.length,
+          error: "Country has already been added, try again.",
+        });
+      }
+      
+
+      // Insert new country if it hasn't been added yet
       await pool.query("INSERT INTO visited_countries (country_code) VALUES ($1)", [countryCode]);
       res.redirect("/");
+
+      
     } catch (err) {
-      console.log(err);
+      console.error("Error:", err); // Enhanced error logging
       const countries = await checkVisisted();
       res.render("index.ejs", {
         countries: countries,
         total: countries.length,
-        error: "Country has already been added, try again.", // Insert error
+        error: "An error occurred, please try again.", // General error
       });
     }
-  } catch (err) {
-    console.log(err);
-    const countries = await checkVisisted();
-    res.render("index.ejs", {
-      countries: countries,
-      total: countries.length,
-      error: "Country name does not exist, try again.", // Query error
-    });
-  }
-});
+  });
 
 
 app.listen(port, () => {
