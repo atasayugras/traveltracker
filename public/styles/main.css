@@ -1,0 +1,124 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  background: #21252b;
+}
+
+button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: teal;
+  border: 0;
+  padding: 15px;
+  color: #ffffff;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.total-count {
+  font-family: "Roboto", sans-serif;
+  color: teal; /* Teal color on hover for a nice accent */
+  position: absolute;
+  padding: 15px;
+  left: 0;
+  bottom: 0;
+}
+
+
+/* *************** INPUT *************** */
+
+input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #2b2f38;
+  color: #d3ddef;
+  width: 100%;
+  border: 1px solid #383d46;
+  margin: 0 0 15px;
+  padding: 15px;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+input::placeholder {
+  color: #999;
+}
+
+
+input:hover {
+  background: #343a46;
+}
+
+input:focus {
+  background: #343a46; /* Same as hover for consistency */
+  border-color: teal;  /* Highlight border in teal when focused */
+  box-shadow: 0 0 8px 2px rgba(0, 128, 128, 0.5); /* Glow effect with teal */
+}
+
+
+
+/* *************** CANVAS *************** */
+
+.ag-canvas {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  position: relative;
+  visibility: visible;
+
+  width: 100%;
+  height: 100%;
+  padding: 3rem 1rem;
+  opacity: 1;
+  transition: opacity 0.5s;
+
+  z-index: -1;
+  margin-top: -90px;
+}
+.ag-canvas_svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  margin-left: 1rem;
+}
+.ag-canvas_svg path {
+  fill: #383d46;
+  fill-opacity: 1;
+  stroke: #21252b;
+  stroke-opacity: 1;
+  stroke-width: 0.5;
+  transition: 0.5s;
+}
+
+@media screen and (max-width: 767px) {
+  .ag-canvas {
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    height: auto;
+    padding: 4rem 1rem 1rem;
+  }
+  .ag-canvas_svg {
+    max-height: calc(100% - 6rem);
+    margin-left: 0;
+  }
+}
