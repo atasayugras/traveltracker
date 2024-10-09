@@ -3,13 +3,11 @@
 ---
 
 ## Description
-
 The **Travel Tracker** application allows users to track the countries they have visited. Built with Node.js, Express, and EJS, this app interacts with a PostgreSQL database hosted on Render to manage country data efficiently.
 
 ---
 
 ## Features
-
 - **Add countries** to your visited list by entering the country name.
 - **Display total number of visited countries** on the home page.
 - **Dynamic user interface** that visually highlights the countries visited.
@@ -17,7 +15,6 @@ The **Travel Tracker** application allows users to track the countries they have
 ---
 
 ## Dependencies
-
 This project relies on the following packages:
 
 - **Express**: Fast, unopinionated, minimalist web framework for Node.js.
@@ -29,22 +26,20 @@ This project relies on the following packages:
 ---
 
 ## Database
-
 This project utilizes a PostgreSQL database to store country data, including country codes and names, as well as a record of visited countries.
 
 ### Tables Used:
-
 - **countries**: Stores the country codes and names.
 - **visited_countries**: Records the countries that have been visited by the user.
 
 ---
 
 ## Getting Started
-
 ### Prerequisites
-
 - Node.js installed on your machine.
 - PostgreSQL database (e.g., Render).
+
+---
 
 ### Installation
 
@@ -76,6 +71,8 @@ npm install
 node index.js
 ```
 
+---
+
 ### Directory Structure
 ```bash
 .
@@ -87,14 +84,19 @@ node index.js
 └── index.js           # Main server file
 ```
 
+---
+
 ### Contributing
 Feel free to fork the repository and submit pull requests for any improvements or new features!
+
+---
 
 ### License
 This project is licensed under the MIT License.
 
-### Instructions for Use
+---
 
+### Instructions for Use
 Replace these:
 ```bash
 <repository-url>
