@@ -57,7 +57,10 @@ Follow these steps to set up the project locally:
    ```
 
 Install dependencies:
+```bash
 npm install
+```
+
 Create a .env file with your database credentials:
 ```bash
    PORT=3000
@@ -91,12 +94,10 @@ License
 This project is licensed under the MIT License.
 
 Instructions for Use
-Replace 
+
+Replace these:
 ```bash
 <repository-url>
-``` 
-and 
-```bash
 <repository-folder>
 ``` 
 with the actual URL and name for your project. Add or modify sections as needed based on your project specifics or to include any additional relevant information.
