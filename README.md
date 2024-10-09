@@ -54,6 +54,7 @@ Follow these steps to set up the project locally:
    ```bash
    git clone <repository-url>
    cd <repository-folder>
+   ```
 
 Install dependencies:
 npm install
@@ -68,9 +69,12 @@ Create a .env file with your database credentials:
 ```
 
 Start the server:
+```bash
 node index.js
+```
 
 Directory Structure
+```bash
 .
 ├── public/            # Static assets (CSS, JS, images)
 ├── views/             # EJS templates
@@ -78,6 +82,7 @@ Directory Structure
 ├── .env               # Environment variables
 ├── package.json       # Project dependencies
 └── index.js           # Main server file
+```
 
 Contributing
 Feel free to fork the repository and submit pull requests for any improvements or new features!
@@ -87,14 +92,3 @@ This project is licensed under the MIT License.
 
 Instructions for Use
 Replace <repository-url> and <repository-folder> with the actual URL and name for your project. Add or modify sections as needed based on your project specifics or to include any additional relevant information.
-
-### Summary
-
-- **Description**: A brief overview of the application and its purpose.
-- **Features**: A list of functionalities that users can expect.
-- **Database**: Information about the tables used in the PostgreSQL database.
-- **Getting Started**: Steps to clone, install dependencies, set up the environment, and run the application.
-- **Directory Structure**: A simple layout of the project structure.
-- **Contributing and License**: Encouragement for collaboration and licensing details.
-
-Feel free to adjust any sections to better fit your project specifics or preferences! If you need any more changes or additions, just let me know!
