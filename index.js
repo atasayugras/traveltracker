@@ -25,8 +25,8 @@ async function checkVisisted() {
 
 // GET home page
 app.get("/", async (req, res) => {
-  const countries = await checkVisisted();
-  res.render("index.ejs", { countries: countries, total: countries.length });
+  const countries = await checkVisisted(); // [ 'TR', 'NL'... ]
+  res.render("index.ejs", { countries: countries, total: countries.length, error:null });
 });
 
 
@@ -34,10 +34,10 @@ app.get("/", async (req, res) => {
 
 //INSERT new country
 app.post("/add", async (req, res) => {
-  const input = req.body.country.trim();
+  const input = req.body.input.trim();
 
   try {
-    const result = await pool.query("SELECT country_code FROM countries WHERE (country_name) ILIKE '%' || $1 || '%';", [input]);
+    const result = await pool.query("SELECT country_code FROM countries WHERE (country_name) ILIKE '%' || $1 || '%';", [input]); // Turkey
     const data = result.rows[0]; // {country_code: 'TR'}
     const countryCode = data.country_code; // 'TR'
     try {
@@ -45,7 +45,7 @@ app.post("/add", async (req, res) => {
       res.redirect("/");
     } catch (err) {
       console.log(err);
-      const countries = await checkVisisted();
+      const countries = await checkVisisted(); // [ 'TR', 'NL'... ]
       res.render("index.ejs", {
         countries: countries,
         total: countries.length,
@@ -54,7 +54,7 @@ app.post("/add", async (req, res) => {
     }
   } catch (err) {
     console.log(err);
-    const countries = await checkVisisted();
+    const countries = await checkVisisted(); // [ 'TR', 'NL'... ]
     res.render("index.ejs", {
       countries: countries,
       total: countries.length,
