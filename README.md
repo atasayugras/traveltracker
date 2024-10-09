@@ -56,12 +56,12 @@ Follow these steps to set up the project locally:
    cd <repository-folder>
    ```
 
-Install dependencies:
+2. **Install dependencies**:
 ```bash
 npm install
 ```
 
-Create a .env file with your database credentials:
+3. **Create a .env file with your database credentials**:
 ```bash
    PORT=3000
    DB_USER=<your_db_user>
@@ -71,12 +71,12 @@ Create a .env file with your database credentials:
    DB_PORT=5432
 ```
 
-Start the server:
+4. **Start the server**:
 ```bash
 node index.js
 ```
 
-Directory Structure
+### Directory Structure
 ```bash
 .
 ├── public/            # Static assets (CSS, JS, images)
@@ -87,13 +87,13 @@ Directory Structure
 └── index.js           # Main server file
 ```
 
-Contributing
+### Contributing
 Feel free to fork the repository and submit pull requests for any improvements or new features!
 
-License
+### License
 This project is licensed under the MIT License.
 
-Instructions for Use
+### Instructions for Use
 
 Replace these:
 ```bash
