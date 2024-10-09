@@ -91,4 +91,12 @@ License
 This project is licensed under the MIT License.
 
 Instructions for Use
-Replace <repository-url> and <repository-folder> with the actual URL and name for your project. Add or modify sections as needed based on your project specifics or to include any additional relevant information.
+Replace 
+```bash
+<repository-url>
+``` 
+and 
+```bash
+<repository-folder>
+``` 
+with the actual URL and name for your project. Add or modify sections as needed based on your project specifics or to include any additional relevant information.
