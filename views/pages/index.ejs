@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Tracker</title>
+  <link rel="stylesheet" href="./styles/main.css">
+</head>
+
+<body>
+  <form class="tab-view tab-view-height-auto" action="/user" method="post">
+    <!-- Create a tab for each user -->
+    <% users.forEach((user) => { %>
+      <input type="submit" name="user" value="<%= user.id %>" id="<%= user.id %>">
+      <label for="<%= user.id %>" style="background-color: <%= user.color %>">
+        <%= user.name %>
+      </label>
+    <% }); %>
+
+    <!-- Add family member button -->
+    <input type="submit" name="add" value="new" id="tab">
+    <label for="tab">➕</label>
+  </form>
+
+  <form action="/add" method="post">
+    <input type="text" name="country_input" autofocus placeholder="<%= locals.error ? error : 'Enter country name' %>">
+    <button type="submit" style="background-color: <%= color %>">Add</button>
+  </form>
+
+  <h2 class="total-count">Total Countries: <%= total %></h2>
+
+  <!-- Include the partial for the world map SVG -->
+  <%- include('../partials/map_partial'); %>
+
+  <script>
+    // Fetching the country codes from the server as a JS array
+    const country_codes = <%- JSON.stringify(countries) %>;
+    
+    console.log("Country codes received from server:", country_codes);
+    
+    // Iterate through each country code and update its color
+    country_codes.forEach(code => {
+      const countryElement = document.getElementById(code);
+      if (countryElement) {
+        countryElement.style.fill = "<%= color %>";  // Applying color from the server-side data
+      } else {
+        console.warn("Country code not found in SVG:", code);
+      }
+    });
+  </script>
+</body>
+
+</html>
