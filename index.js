@@ -42,7 +42,7 @@ const renderHomePage = async (res, options = {}) => {
       countries,
       total: countries.length,
       users,
-      color: currentUser ? currentUser.color : "#ffffff",
+      color: currentUser ? currentUser.color : "teal",
       ...options,
     });
   } catch (err) {
@@ -59,7 +59,7 @@ app.post("/user", (req, res) => {
     return res.render("pages/new.ejs");
   }
 
-  const userId = parseInt(req.body.user);
+  const userId = req.body.user;
   activeUserId = userId;
   renderHomePage(res);
 });

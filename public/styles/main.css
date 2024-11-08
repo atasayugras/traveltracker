@@ -121,9 +121,6 @@ input:focus {
     max-height: calc(100% - 6rem);
     margin-left: 0;
   }
-<<<<<<< HEAD
-}
-=======
 }
 
 
@@ -474,4 +471,3 @@ input:focus {
     display: none;
   }
 }
->>>>>>> 300e092 (Add tabs, refactor code)
